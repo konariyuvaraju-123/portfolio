@@ -9,137 +9,177 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-zRridkk/tRmE0AkXkwrgy9J+jhx7P0hIJ7vKG+pLJOSA46vqlhRUetF/b/xDS9IKhtP/r50R9lBQiSVKDBXRq3j/6kX" crossorigin="anonymous"/>
-    <head>
-        <style>
-            /* Basic Styles */
-            body, html {
-                margin: 0;
-                padding: 0;
-                font-family: Arial, sans-serif;
-            }
-    
-            /* Header Styling */
-            header {
-                background-color: #1b263b;
-                color: #e0e1dd;
-                text-align: center;
-                padding: 20px 0;
-                position: relative;
-            }
-    
-            /* Navbar and Links */
-            nav {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-            }
-    
-            .nav-links {
-                display: flex;
-                list-style: none;
-                margin: 0;
-                padding: 0;
-            }
-    
-            .nav-links li {
-                margin: 0 10px;
-            }
-    
-            .nav-links a {
-                color: #e0e1dd;
-                text-decoration: none;
-                font-weight: bold;
-            }
-    
-            .nav-links a:hover {
-                color: #9c97f1;
-            }
-    
-            /* Hamburger Icon */
-            .hamburger {
-                display: none;
-                cursor: pointer;
-            }
-    
-            .hamburger span {
-                display: block;
-                width: 25px;
-                height: 3px;
-                margin: 5px;
-                background-color: #fff;
-                transition: 0.3s;
-            }
-    
-            /* Responsive Styles for Mobile */
-            @media (max-width: 768px) {
-                .nav-links {
-                    display: none; /* Hide by default on mobile */
-                }
-    
-                .hamburger {
-                    display: block; /* Show hamburger icon on mobile */
-                }
-    
-                /* Hamburger animation */
-                .hamburger.active span:nth-child(2) {
-                    opacity: 0;
-                }
-    
-                .hamburger.active span:nth-child(1) {
-                    transform: rotate(45deg) translate(5px, 5px);
-                }
-    
-                .hamburger.active span:nth-child(3) {
-                    transform: rotate(-45deg) translate(5px, -5px);
-                }
-    
-                /* Show the nav-links when active */
-                .nav-links.active {
-                    display: flex;
-                    flex-direction: column;
-                    background-color: #1b263b;
-                    position: absolute;
-                    top: 100%;
-                    left: 0;
-                    width: 100%;
-                    text-align: center;
-                }
-            }
-            .about-section {
-  text-align: center;
-  padding: 20px;
+    <style>
+        /* Main Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            overflow-x: hidden;
+        }
 
-  /* New CSS for responsiveness */
-  @media (max-width: 768px) {
-    font-size: 14px;
-    line-height: 1.5;
-  }
+        header {
+            background-color: #1b263b;
+            color: #e0e1dd;
+            padding: 15px 20px;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 999;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            gap: 20px;
+        }
+
+        .nav-links li {
+            position: relative;
+        }
+
+        .nav-links a {
+            color: #e0e1dd;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 10px 15px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover, .nav-links .active-link {
+            background-color: #3a506b;
+            color: #ffffff;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            margin: 5px;
+            background-color: #fff;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                height: 100vh;
+                width: 100%;
+                background-color: #1b263b;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                z-index: 1000;
+                overflow-y: auto;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            body.menu-open {
+                overflow: hidden;
+            }
+        }
+
+        #dynamic-text {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        /* About Section */
+       /* General Styles for About Section */
+     /* General Styles for About Section */
+     /* General Styles for About Section */
+     /* Right Section Styles */
+  /* About Me Section */
+  .about-me {
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 600px;
+  border: 2px solid #3498db;  /* Border color */
+  border-radius: 8px;         /* Rounded corners */
+  background-color: #1b263b;  /* White background for clarity */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+    animation: fadeInUp 2s ease-out;/* Light shadow for depth */
+   }
+
+.about-me h2 {
+  text-align: center;
+  font-size: 2em;
+  color: #e0e1dd;
 }
-        </style>
-    </head>
-    <body>
-    
-        <!-- Header Section -->
-        <header>
-            <div class="logo">
-                <a href="#" style="color: #e0e1dd; text-decoration: none;">Yuvaraju Konari</a>
-            </div>
-            <nav>
-                <ul class="nav-links">
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#skills">Skills</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#">Resume</a></li>
-                    <li><a href="#Internships">Internships</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-            <div class="hamburger" onclick="toggleMenu()">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </header>
+
+.about-me p {
+  text-align: justify;
+  font-size: 1.2em;
+  color:#e0e1dd;
+}
+
+/*different*/
+/* Basic reset */
+/*animation about me*/
+/* Basic reset */
+/* About Me Section */
+/* Keyframes for fade-in and slide-up effect */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0; /* Initial state: invisible */
+        transform: translateY(20px); /* Start from 20px lower */
+    }
+    100% {
+        opacity: 1; /* Final state: fully visible */
+        transform: translateY(0); /* Move to the original position */
+    }
+}
+
+
+
+/* Heading styles */
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="https://drive.google.com/file/d/1lPAavjzy-hW2-s3w96hOXv0j3EmXtOZi/view?usp=sharing" target="_blank">Resume</a></li>
+                <li><a href="#Internships">Internships</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="hamburger" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </header>
     <main>
         <section class="intro">
             <div class="intro-left">
@@ -153,14 +193,13 @@
 
         <hr>
 
-        <section id="about" class="about-section" >
+        <section class="about-me">
             <h2>About Me</h2>
-            <div class="about-content">
-                <p>
-                    I am Yuvaraju, a Computer Science student passionate about web development and problem-solving. My goal is to leverage my technical skills to create impactful, innovative projects. I enjoy working with JavaScript, Node.js, and Python and am constantly seeking new challenges to enhance my skill set.
-                </p>
-            </div>
-        </section>
+            <p> I am Yuvaraju, a Computer Science student passionate about web development and problem-solving. My goal is to leverage my technical skills to create impactful, innovative projects. I enjoy working with JavaScript, Node.js, and Python and am constantly seeking new challenges to enhance my skill set.</p>
+           <p>I am highly driven by the opportunity to work on innovative projects that enhance user experiences and contribute to business growth. As a dedicated learner, I continuously seek out new tools and best practices to stay at the forefront of the industry. With a collaborative and results-oriented approach, I am excited to bring value to any team I join.</p>
+          </section>
+        
+  
 
         <!-- Skills section -->
         <section id="skills" class="skills-section">
@@ -244,6 +283,7 @@
             </div>
         </section>
 
+      
         <!-- Internships section -->
         <section id="Internships" class="internships-section">
             <h2>Internships</h2>
@@ -256,7 +296,7 @@
                     <p><strong>Responsibilities:</strong> Developed and maintained web pages, assisted in debugging and fixing issues, collaborated with the team to implement new features, and participated in code reviews.</p>
                     <p><strong>Technologies Used:</strong> HTML, CSS, JavaScript, MySQL</p>
                     <p><strong>Achievements:</strong> Successfully completed all tasks on time and received a certificate of completion.</p>
-                    <a href="https://your-certificate-link1" target="_blank" class="internship-button">
+                    <a href="https://drive.google.com/file/d/1cq_z9oRG8de65WWhqYqkmcQVsbZHpoh0/view?usp=drivesdk" target="_blank" class="internship-button">
                         View Certificate
                     </a>
                 </div>
@@ -269,7 +309,7 @@
                     <p><strong>Responsibilities:</strong> Developed math and weather bots using APIs, contributed to object detection with YOLO, and worked with Hugging Face models for NLP tasks.</p>
                     <p><strong>Technologies Used:</strong> Python, YOLO, APIs, Hugging Face</p>
                     <p><strong>Achievements:</strong> Implemented multiple AI models and improved bot performance.</p>
-                    <a href="https://your-certificate-link1" target="_blank" class="internship-button">
+                    <a href="https://drive.google.com/file/d/11wOS-GtKkA0vNvTnvGM0wobn61bRYboW/view?usp=sharing" target="_blank" class="internship-button">
                         View Certificate
                     </a>
                 </div>
@@ -277,23 +317,23 @@
         </section>
  <!--contact section-->
  <section id="contact" class="contact-section">
-  <h2>Contact Me</h2>
-  <form action="konariyuvaraju@gmail.com" method="post">
-    <div class="form-group">
-      <label for="name">Name:</label>
-      <input type="text" id="name" name="name" required>
-    </div>
-    <div class="form-group">
-      <label for="email">Email:</label>
-      <input type="email" id="email" name="email" required>
-    </div>
-    <div class="form-group">
-      <label for="message">Message:</label>
-      <textarea id="message" name="message" required></textarea>
-    </div>
-    <button type="submit">Send Message</button>
-  </form>
-</section>
+    <h2>Contact Me</h2>
+    <form action="mailto:konariyuvaraju@gmail.com" method="post" enctype="text/plain">
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+      <div class="form-group">
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" required></textarea>
+      </div>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
  <!-- Footer Section -->
  <footer class="footer">
   <!-- Icons Section -->
@@ -323,7 +363,7 @@
 
   <!-- Footer Text -->
   <div class="footer-text">
-    &copy; 2024 Your Name. All rights reserved.
+     Desinged By <span style="font-size: large;">Yuvaraju</span>
   </div>
 </footer>
 
@@ -347,7 +387,29 @@
                 // Toggle the 'active' class on both navLinks and hamburger
                 navLinks.classList.toggle('active');
                 hamburger.classList.toggle('active');
+                body.classList.toggle('menu-open');
             }
+             // Scroll-triggered active navigation
+    document.addEventListener('scroll', function() {
+        const sections = document.querySelectorAll('section'); // Select all sections
+        const navLinks = document.querySelectorAll('.nav-links a');
+
+        let currentSection = '';
+
+        sections.forEach((section) => {
+            const sectionTop = section.offsetTop;
+            if (pageYOffset >= sectionTop - 50) {
+                currentSection = section.getAttribute('id');
+            }
+        });
+
+        navLinks.forEach((link) => {
+            link.classList.remove('active-link');
+            if (link.getAttribute('href').substring(1) === currentSection) {
+                link.classList.add('active-link');
+            }
+        });
+    });
     </script>
 </body>
 </html>
