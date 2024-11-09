@@ -16,7 +16,6 @@
             margin: 0;
             overflow-x: hidden;
         }
-
         header {
             background-color: #1b263b;
             color: #e0e1dd;
@@ -26,135 +25,90 @@
             width: 100%;
             z-index: 999;
         }
-
-        nav {
-            display: flex;
-            justify-content: space-evenly;
-            align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
         .nav-links {
-            display: flex;
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            gap: 20px;
-        }
+    display: flex;
+    list-style: none;
+   
+}
 
-        .nav-links li {
-            position: relative;
-        }
+.nav-links a {
+    color: #e0e1dd;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px 15px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
 
-        .nav-links a {
-            color: #e0e1dd;
-            text-decoration: none;
-            font-weight: bold;
-            padding: 10px 15px;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-        }
+.nav-links a:hover {
+    background-color: #3a506b;
+    color: #ffffff;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
 
-        .nav-links a:hover, .nav-links .active-link {
-            background-color: #3a506b;
-            color: #ffffff;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-        }
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
 
-        .hamburger {
-            display: none;
-            cursor: pointer;
-        }
+.hamburger span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 4px;
+    background-color: #fff;
+}
 
-        .hamburger span {
-            display: block;
-            width: 25px;
-            height: 3px;
-            margin: 5px;
-            background-color: #fff;
-        }
+/* Responsive Design */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: fixed;
+        top: 60px; /* Slightly below header */
+        left: 0;
+        height: calc(100% - 60px); /* Adjust height for smaller screens */
+        width: 100%;
+        background-color: #1b263b;
+        align-items: center;
+        justify-content: center;
+        z-index: 1000;
+    }
 
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-                position: fixed;
-                top: 0;
-                left: 0;
-                height: 100vh;
-                width: 100%;
-                background-color: #1b263b;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                z-index: 1000;
-                overflow-y: auto;
-            }
+    .nav-links.active {
+        display: flex;
+    }
 
-            .nav-links.active {
-                display: flex;
-            }
-
-            .hamburger {
-                display: block;
-            }
-
-            body.menu-open {
-                overflow: hidden;
-            }
-        }
-
-        #dynamic-text {
-            font-size: 24px;
-            font-weight: bold;
-        }
+    .hamburger {
+        display: flex;
+    }
+}
+        #dynamic-text { font-size: 24px; font-weight: bold; }
 
         /* About Section */
-       /* General Styles for About Section */
-     /* General Styles for About Section */
-     /* General Styles for About Section */
-     /* Right Section Styles */
-  /* About Me Section */
-  .about-me {
-  padding: 20px;
-  margin: 20px auto;
-  max-width: 600px;
-  border: 2px solid #3498db;  /* Border color */
-  border-radius: 8px;         /* Rounded corners */
-  background-color: #1b263b;  /* White background for clarity */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
-    animation: fadeInUp 2s ease-out;/* Light shadow for depth */
-   }
+        .about-me {
+            padding: 20px; 
+            margin: 20px auto; 
+            max-width: 600px; 
+            border-radius: 8px; 
+            border: 2px solid #3498db;
+            background-color:#1b263b; 
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+            animation: fadeInUp 2s ease-out; 
+        }
+        .about-me h2 { text-align:center; font-size :2em;color:#e0e1dd;}
+        .about-me p { text-align :justify;font-size :1.2em;color:#e0e1dd;}
 
-.about-me h2 {
-  text-align: center;
-  font-size: 2em;
-  color: #e0e1dd;
+        @keyframes fadeInUp {
+          from { opacity :0 ; transform :translateY(20px); } 
+          to { opacity :1 ; transform :translateY(0); } 
+        }
+        .active-link {
+    color: #9c97f1;
+    border: 2px solid #9c97f1;
+    font-weight: bold;
 }
-
-.about-me p {
-  text-align: justify;
-  font-size: 1.2em;
-  color:#e0e1dd;
-}
-
-/*different*/
-/* Basic reset */
-/*animation about me*/
-/* Basic reset */
-/* About Me Section */
-/* Keyframes for fade-in and slide-up effect */
-@keyframes fadeInUp {
-    0% {
-        opacity: 0; /* Initial state: invisible */
-        transform: translateY(20px); /* Start from 20px lower */
-    }
-    100% {
-        opacity: 1; /* Final state: fully visible */
-        transform: translateY(0); /* Move to the original position */
-    }
-}
-
 
 
 /* Heading styles */
@@ -163,15 +117,16 @@
 <body>
 
     <!-- Header Section -->
+     <section>
     <header>
-        <nav>
+        <nav id="navbar" id="mobile-nav">
             <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="https://drive.google.com/file/d/1lPAavjzy-hW2-s3w96hOXv0j3EmXtOZi/view?usp=sharing" target="_blank">Resume</a></li>
-                <li><a href="#Internships">Internships</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#about" onclick="closeMenu()">About</a></li>
+                <li><a href="#skills" onclick="closeMenu()">Skills</a></li>
+                <li><a href="#projects" onclick="closeMenu()">Projects</a></li>
+                <li><a href="https://drive.google.com/file/d/1lPAavjzy-hW2-s3w96hOXv0j3EmXtOZi/view?usp=sharing" target="_blank" onclick="closeMenu()">Resume</a></li>
+                <li><a href="#Internships" onclick="closeMenu()">Internships</a></li>
+                <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
             </ul>
         </nav>
         <div class="hamburger" onclick="toggleMenu()">
@@ -180,6 +135,7 @@
             <span></span>
         </div>
     </header>
+    </section>
     <main>
         <section class="intro">
             <div class="intro-left">
@@ -193,7 +149,7 @@
 
         <hr>
 
-        <section class="about-me">
+        <section class="about-me" id="about">
             <h2>About Me</h2>
             <p> I am Yuvaraju, a Computer Science student passionate about web development and problem-solving. My goal is to leverage my technical skills to create impactful, innovative projects. I enjoy working with JavaScript, Node.js, and Python and am constantly seeking new challenges to enhance my skill set.</p>
            <p>I am highly driven by the opportunity to work on innovative projects that enhance user experiences and contribute to business growth. As a dedicated learner, I continuously seek out new tools and best practices to stay at the forefront of the industry. With a collaborative and results-oriented approach, I am excited to bring value to any team I join.</p>
@@ -387,29 +343,43 @@
                 // Toggle the 'active' class on both navLinks and hamburger
                 navLinks.classList.toggle('active');
                 hamburger.classList.toggle('active');
-                body.classList.toggle('menu-open');
+                function toggleMenu() {
+               const nav = document.getElementById('mobile-nav');
+               nav.classList.toggle('active');  // Toggle the mobile navigation visibility
+}
+
+                //body.classList.toggle('menu-open');
             }
+            function closeMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.remove('active');
+        }
              // Scroll-triggered active navigation
-    document.addEventListener('scroll', function() {
-        const sections = document.querySelectorAll('section'); // Select all sections
-        const navLinks = document.querySelectorAll('.nav-links a');
+             document.addEventListener('scroll', function() {
+    const sections = document.querySelectorAll('section'); // Select all sections
+    const navLinks = document.querySelectorAll('.nav-links a');
+    let currentSection = '';
 
-        let currentSection = '';
+    sections.forEach((section) => {
+        // Account for a header offset, if any (e.g., 60px)
+        const sectionTop = section.offsetTop - 60;
+        const sectionHeight = section.offsetHeight;
 
-        sections.forEach((section) => {
-            const sectionTop = section.offsetTop;
-            if (pageYOffset >= sectionTop - 50) {
-                currentSection = section.getAttribute('id');
-            }
-        });
-
-        navLinks.forEach((link) => {
-            link.classList.remove('active-link');
-            if (link.getAttribute('href').substring(1) === currentSection) {
-                link.classList.add('active-link');
-            }
-        });
+        // Check if the scroll position is within the section's top and bottom range
+        if (pageYOffset >= sectionTop && pageYOffset < sectionTop + sectionHeight) {
+            currentSection = section.getAttribute('id');
+        }
     });
+
+    // Update the active link class based on the current section in view
+    navLinks.forEach((link) => {
+        link.classList.remove('active-link'); // Remove active state from all links
+        if (link.getAttribute('href').substring(1) === currentSection) {
+            link.classList.add('active-link'); // Add active state to the current link
+        }
+    });
+});
+
     </script>
 </body>
 </html>
